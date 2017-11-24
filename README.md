@@ -1,3 +1,22 @@
+To run unit tests use:
+
+```
+yarn test
+```
+
+To run acceptance tests use:
+
+```
+yarn features
+```
+
+Note features relies on the app running on the c9 external instance
+
+TODO:
+
+can we automatically spin up a test app on port 8081 or similar?
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Route } from 'react-router-dom';
-import Routes from './Routes.js';
-import VideosIndex from './VideosIndex.js';
+import Routes from './../Routes.js';
+import VideosIndex from './../VideosIndex.js';
 
 import enzyme, { configure, shallow } from 'enzyme';
 // import Adapter from 'enzyme-adapter-react-16';
