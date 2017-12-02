@@ -16,9 +16,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "testserver": "PORT=8081 react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom src/__tests__/*.test.js",
-    "features": "DEBUG=nightmare* xvfb-run react-scripts test --env=jsdom src/features/*.test.js",
+    "test": "react-scripts test --env=jsdom src/__tests__/**/*.test.js",
+    "features": "xvfb-run react-scripts test --env=jsdom src/features/*.test.js",
+    "features-debug": "DEBUG=nightmare* xvfb-run react-scripts test --env=jsdom src/features/*.test.js",
     "eject": "react-scripts eject"
   },
   "devDependencies": {

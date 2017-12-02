@@ -6,11 +6,6 @@ import Routes from './../Routes.js';
 import VideosIndex from './../VideosIndex.js';
 
 import enzyme, { configure, shallow } from 'enzyme';
-// import Adapter from 'enzyme-adapter-react-16';
-
-// configure( {
-//   adapter: new Adapter()
-// })
 
 it('renders correct routes', () => {
   const wrapper = shallow(<Routes />);

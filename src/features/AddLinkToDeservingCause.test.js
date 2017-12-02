@@ -1,44 +1,57 @@
-// import Nightmare from 'nightmare';
-// import {expect} from 'chai';
+import Nightmare from 'nightmare'
+import {expect} from 'chai';
 
-// describe('test duckduckgo search results', () => {
-//   it('should find the nightmare github link first', (done) => {
-//     const nightmare = Nightmare()
-//     nightmare
-//       .goto('https://duckduckgo.com')
-//       .type('#search_form_input_homepage', 'github nightmare')
-//       .click('#search_button_homepage')
-//       .wait('#zero_click_wrapper .c-info__title a')
-//       .evaluate(() =>
-//         document.querySelector('#zero_click_wrapper .c-info__title a').href
-//       )
-//       .end()
-//       .then((link) => {
-//         expect(link).to.equal('https://github.com/segmentio/nightmare');
-//         done();
-//       })
-//   });
+// const nightmare = Nightmare({
+//   webPreferences: {
+//     //preload: path.resolve("nightmare-startup-script.js")
+//     preload: "./nightmare-startup-script.js"
+//   }
 // });
 
 
 
+// can we automatically run test server for this to hit 
+// can we avoid the c9 default page
 
+describe('When visiting the homepage', () => {
 
-
-import nightmare from 'nightmare'
-
-describe('When visiting the homepage', function () {
-
-  test('it welcomes the user', async function () {
-   // let page = nightmare().goto('https://www.agileventures.org')
-    let page = nightmare().goto('https://mastering-phoenix-framework-federicoesparza.c9users.io')
-    console.log('we are looking for some text')
-    let text = await page.evaluate(() => document.body.textContent)
-                         .end()
+  test('it welcomes the user', (done) => {
+   const nightmare = Nightmare();
+   nightmare.goto('http://mastering-phoenix-framework-federicoesparza.c9users.io:8081')
+     .cookies.set({
+       name: 'c9.live.user.click-through',
+       value: 'ok',
+       path: '/',
+       secure: true,
+       domain: '.mastering-phoenix-framework-federicoesparza.c9users.io'
+     })
+     .evaluate(() =>
+        document.querySelector('.App-title').text
+     )
+     .end()
+     .then((text) => {
+       expect(text).to.equal('Welcome to Sing for Needs');
+       done();
+     });
+    // console.log('we are looking for some text')
+    
+    // let text = await page.evaluate(() => document.body.textContent)
+    //                      .end()
     // console.log('we found some text')
     // console.log(text)
-    //expect(text).toContain('Code')
-    expect(text).toContain('Welcome to the Cloud9')
+
+    // expect(text).toContain('Welcome to Sing for Needs')
+    
+    // nightmare.click('a.solid.fat.info.button')
+    //          .wait('.App-title')
+             // .evaluate(() =>
+             //   document.querySelector('.App-title').text
+             // )
+             // .end()
+             // .then((text) => {
+             //   expect(text).to.equal('Welcome to Sing for Needs');
+             //   done();
+             // })
   })
 
 })

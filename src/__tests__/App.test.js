@@ -30,16 +30,13 @@ describe ('FormLink', () =>{
     expect(yt_link).toHaveLength(1);
     
     const input = wrapper.find("input#yt_link").first();
-    input.value = "youtube";
-    // input.simulate('focus')
+    input.value = "http://youtu.be/B8NOJCdq1f0";
     input.simulate('change', {target: input})
-    // input.simulate('mouseOver')
-    // input.simulate('mouseUp')
     const button = wrapper.find("input[type='submit']").first();
     button.simulate('click');
     const display = wrapper.find("div#youtube_display").first();
     // console.log(wrapper.debug());
-    expect(display.text()).toEqual('youtube');
     
+    expect(display.text()).toEqual('http://youtu.be/B8NOJCdq1f0');
   })
 });
