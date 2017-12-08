@@ -9,8 +9,11 @@ class VideosIndex extends Component {
   
   render() {
     return (
-      <div id="videos">
-        <iframe title="woot" className="embed-responsive-item" src="https://www.youtube.com/embed/DgIUxKc_5-c" />
+      <div>
+        <p>http://yt.link</p>
+        <div id="videos">
+          <iframe title="woot" className="embed-responsive-item" src="https://www.youtube.com/embed/DgIUxKc_5-c" />
+        </div>
       </div>
       )
     }

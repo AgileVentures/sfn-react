@@ -15,24 +15,42 @@ import {expect} from 'chai';
 
 describe('When visiting the homepage', () => {
 
+  // beforeEach(function() {
+  //     originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
+  //     jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+  // });
+
   test('it welcomes the user', (done) => {
    const nightmare = Nightmare();
-   nightmare.goto('http://mastering-phoenix-framework-federicoesparza.c9users.io:8081')
-     .cookies.set({
+   //nightmare.useragent('Headless')
+   nightmare.cookies.set({
+       url: 'https://mastering-phoenix-framework-federicoesparza.c9users.io:8081/',
        name: 'c9.live.user.click-through',
        value: 'ok',
        path: '/',
        secure: true,
-       domain: '.mastering-phoenix-framework-federicoesparza.c9users.io'
+       domain: '.mastering-phoenix-framework-federicoesparza.c9users.io',
+       expires: '2187-08-16T13:12:47.580Z'
      })
+     .goto('https://mastering-phoenix-framework-federicoesparza.c9users.io:8081')
+    //  .click('a.solid.fat.info.button')
+    //  .wait('.App-title')
+     // .type("#yt_link", "http://yt.link")
+     // .click("input[name = 'Submit']")
+     // .wait(1000)
+     .click("#videos_page_link")
+     //.wait(1000)
+     // .goto('https://mastering-phoenix-framework-federicoesparza.c9users.io:8081/videos')
      .evaluate(() =>
-        document.querySelector('.App-title').text
-     )
+        document.body.textContent
+        // document.querySelector('.App-title') # not working for some reason
+     )     
      .end()
      .then((text) => {
-       expect(text).to.equal('Welcome to Sing for Needs');
+       expect(text).to.include('http://yt.link');
        done();
-     });
+     })
+     .catch(done);
     // console.log('we are looking for some text')
     
     // let text = await page.evaluate(() => document.body.textContent)

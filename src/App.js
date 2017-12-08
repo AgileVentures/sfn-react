@@ -30,7 +30,7 @@ class App extends Component {
         <p className="App-intro">
           Enter a YouTube link below to help a deserving cause.
         </p>
-        
+        <a href='/videos' id='videos_page_link'>Videos</a>
         <form>
         <input 
           id="yt_link" 
