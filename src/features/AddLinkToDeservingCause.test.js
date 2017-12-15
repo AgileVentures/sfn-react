@@ -1,6 +1,8 @@
 import Nightmare from 'nightmare'
 import {expect} from 'chai';
 
+// can we automatically run test server for this to hit?
+
 // const nightmare = Nightmare({
 //   webPreferences: {
 //     //preload: path.resolve("nightmare-startup-script.js")
@@ -8,49 +10,53 @@ import {expect} from 'chai';
 //   }
 // });
 
-
-
-// can we automatically run test server for this to hit 
-// can we avoid the c9 default page
+// can we avoid the c9 default page? ==> cookie thing works
 
 describe('When visiting the homepage', () => {
 
-  // beforeEach(function() {
-  //     originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
-  //     jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
-  // });
+  var originalTimeout;
+  beforeEach(function() {
+    originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+  });
 
-  test('it welcomes the user', (done) => {
-   const nightmare = Nightmare();
-   //nightmare.useragent('Headless')
-   nightmare.cookies.set({
-       url: 'https://mastering-phoenix-framework-federicoesparza.c9users.io:8081/',
-       name: 'c9.live.user.click-through',
-       value: 'ok',
-       path: '/',
-       secure: true,
-       domain: '.mastering-phoenix-framework-federicoesparza.c9users.io',
-       expires: '2187-08-16T13:12:47.580Z'
-     })
-     .goto('https://mastering-phoenix-framework-federicoesparza.c9users.io:8081')
-    //  .click('a.solid.fat.info.button')
-    //  .wait('.App-title')
-     // .type("#yt_link", "http://yt.link")
-     // .click("input[name = 'Submit']")
-     // .wait(1000)
+  // const url = "https://mastering-phoenix-framework-federicoesparza.c9users.io:8081/";
+  const url = "http://localhost:8081/";
+
+  test('it sees the submitted link on the videos page', (done) => {
+    const nightmare = Nightmare({ show: true });
+    //nightmare.useragent('Headless')
+    nightmare
+     // .cookies.set({
+     //   url: url,
+     //   name: 'c9.live.user.click-through',
+     //   value: 'ok',
+     //   path: '/',
+     //   secure: true,
+     //   domain: '.mastering-phoenix-framework-federicoesparza.c9users.io',
+     //   expires: '2187-08-16T13:12:47.580Z'
+     // }) // locally this causes a [object Object] error
+     .goto(url)
+     // .click('a.solid.fat.info.button')
+     // .wait('.App-title')
+     .type("#yt_link", "http://real.yt.link")
+     .click("input[name = 'Submit']")
+     .wait(1000)
      .click("#videos_page_link")
-     //.wait(1000)
-     // .goto('https://mastering-phoenix-framework-federicoesparza.c9users.io:8081/videos')
      .evaluate(() =>
         document.body.textContent
         // document.querySelector('.App-title') # not working for some reason
      )     
      .end()
      .then((text) => {
-       expect(text).to.include('http://yt.link');
+       //console.log(text)
+       expect(text).to.include('http://real.yt.link');
        done();
      })
-     .catch(done);
+     .catch((err) => {
+       fail(err);
+       done();
+     });
     // console.log('we are looking for some text')
     
     // let text = await page.evaluate(() => document.body.textContent)
@@ -72,4 +78,7 @@ describe('When visiting the homepage', () => {
              // })
   })
 
+  afterEach(function() {
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
+  });
 })
