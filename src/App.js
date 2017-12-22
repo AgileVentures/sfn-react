@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { addLink } from "./actions"
 import logo from './logo.svg';
 import './App.css';
 
@@ -11,8 +13,9 @@ class App extends Component {
   
   click(e) { 
     e.preventDefault();
-    // console.log('click pressed');
+    console.log('click pressed');
     this.setState({display: this.state.youtube_link}); 
+    this.props.addLink(this.state.youtube_link)
   }
   
   onInputChange(value) {
@@ -44,9 +47,14 @@ class App extends Component {
         <div id="youtube_display">
           {this.state.display}
         </div>
+        <p>links: {this.props.links}</p>
       </div>
     );
   }
 }
 
-export default App;
+function mapStateToProps(state){
+  return { links: state.links }
+}
+
+export default connect(mapStateToProps, { addLink })(App);
