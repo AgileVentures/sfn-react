@@ -4,6 +4,8 @@ import { addLink } from "./actions"
 import logo from './logo.svg';
 import './App.css';
 
+import { Link } from 'react-router-dom'
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -33,7 +35,7 @@ class App extends Component {
         <p className="App-intro">
           Enter a YouTube link below to help a deserving cause.
         </p>
-        <a href='/videos' id='videos_page_link'>Videos</a>
+        <Link to='/videos' id='videos_page_link'>Videos</Link>
         <form>
         <input 
           id="yt_link" 
