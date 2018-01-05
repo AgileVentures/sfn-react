@@ -3,19 +3,36 @@ To run unit tests use:
 ```
 yarn test
 ```
+TODO: the above is supposed to only run the unit tests, but currently runs all
+NOTE: have commented out unit tests at the moment since they are broken for redux
 
-To run acceptance tests use:
+To run acceptance tests first start the test server:
+
+```
+yarn testserver # runs on port 8081
+```
+
+and then in another terminal you can run the acceptance tests like so
 
 ```
 yarn features
 ```
 
-Note features relies on the app running on the c9 external instance
-
 TODO:
 
-can we automatically spin up a test app on port 8081 or similar?
-
+* work out if we can avoid react-scripts test running in watch mode
+* work out how unit tests would work with redux
+  - https://medium.com/netscape/testing-a-react-redux-app-using-jest-and-enzyme-b349324803a9
+* clean up app/UX
+  - better navigation
+  - acknowledge when user submits a youtube video
+* have the url actually loaded into the iframe
+  - extracting the youtube id <-- good to unit test?
+  - being able to test what the iframe is pointing to --> grabbing the src variable?
+* cleanly separate different kinds of tests
+* work out if there is any good emerging standard for app/test layout
+  - stephen grider course on testing react?
+  - reviewing documentation more extensively
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 

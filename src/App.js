@@ -32,10 +32,11 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Sing for Needs</h1>
         </header>
+        <br />
+        <br />       
         <p className="App-intro">
           Enter a YouTube link below to help a deserving cause.
         </p>
-        <Link to='/videos' id='videos_page_link'>Videos</Link>
         <form>
         <input 
           id="yt_link" 
@@ -45,11 +46,15 @@ class App extends Component {
         />
         <input type="submit" name="Submit" onClick={(event) => this.click(event)} />
         </form>
+        <br />
+        <br />                
+        Click to see the <Link to='/videos' id='videos_page_link'>Deserving Cause Videos</Link>
+
         
-        <div id="youtube_display">
-          {this.state.display}
-        </div>
-        <p>links: {this.props.links}</p>
+        { /* <div id="youtube_display">
+              {  this.state.display  }
+             </div>
+        <p>links: { this.props.links}</p> */ }
       </div>
     );
   }
