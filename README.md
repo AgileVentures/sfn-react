@@ -20,7 +20,7 @@ yarn features
 
 TODO:
 
-* work out if we can avoid react-scripts test running in watch mode
+
 * work out how unit tests would work with redux
   - https://medium.com/netscape/testing-a-react-redux-app-using-jest-and-enzyme-b349324803a9
 * clean up app/UX
@@ -29,10 +29,18 @@ TODO:
 * have the url actually loaded into the iframe
   - extracting the youtube id <-- good to unit test?
   - being able to test what the iframe is pointing to --> grabbing the src variable?
-* cleanly separate different kinds of tests
 * work out if there is any good emerging standard for app/test layout
-  - stephen grider course on testing react?
+  - stephen grider course on testing react? https://www.udemy.com/react-redux-tutorial/
   - reviewing documentation more extensively
+
+
+DONE
+
+* work out how we can avoid react-scripts test running in watch mode
+  - use "CI=true"
+* cleanly separate different kinds of tests
+  - use `--testPathPattern=__tests__`  
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
