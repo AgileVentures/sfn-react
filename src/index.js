@@ -22,13 +22,7 @@ let store = createStore(reducers);
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
-      <Switch>
-        <Route path='/videos/new' component={VideosIndex} />
-        <Route path='/videos' component={VideosIndex} />
-        <Route path='/' component={App} />
-      </Switch>
-    </BrowserRouter>
+    <Routes/>
   </Provider>, 
   document.getElementById('root')
 );
