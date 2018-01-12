@@ -1,6 +1,6 @@
 import { ADD_LINK } from "../actions";
 
-export default function(state=[123],action){
+export default function(state=[],action){
   console.log('action: ' + action.type);
   console.log('state: ' + state);
   switch (action.type){

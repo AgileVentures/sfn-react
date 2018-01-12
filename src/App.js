@@ -47,13 +47,14 @@ class App extends Component {
         <input type="submit" name="Submit" onClick={(event) => this.click(event)} />
         </form>
         <br />
-        <br />                
-        Click to see the <Link to='/videos' id='videos_page_link'>Deserving Cause Videos</Link>
-
-        
+        <br /> 
         <div id="youtube_display">
              You have submitted {  this.state.display  }
         </div>
+        <br />
+        <br />                
+        Click to see the <Link to='/videos' id='videos_page_link'>Deserving Cause Videos</Link>
+
         { /* <p>links: { this.props.links}</p> */ }
       </div>
     );

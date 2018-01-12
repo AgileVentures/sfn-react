@@ -10,10 +10,6 @@ import './index.css';
 import Routes from './Routes.js'
 import registerServiceWorker from './registerServiceWorker';
 
-import App from './App';
-import VideosIndex from './VideosIndex';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-
 // global.requestAnimationFrame = function(callback) {
 //   setTimeout(callback, 0);
 // };
