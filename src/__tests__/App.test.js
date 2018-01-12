@@ -1,5 +1,5 @@
 // All unit tests broken by switch to react-redux
-the moment, so have commented them out
+// the moment, so have commented them out
 // to avoid confusion
 
 import React from 'react';
