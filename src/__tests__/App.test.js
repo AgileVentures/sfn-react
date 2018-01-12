@@ -4,19 +4,26 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Route, Link, MemoryRouter } from 'react-router-dom'
+import {Provider} from 'react-redux'
 import App from './../App';
 
 import enzyme, { configure, shallow } from 'enzyme';
+
+import configureStore from 'redux-mock-store'
 // import Adapter from 'enzyme-adapter-react-16';
 
 // configure( {
 //   adapter: new Adapter()
 // })
+const initialState = {output:10}
+const mockStore = configureStore()
+let store
 
 it('renders without crashing', () => {
-  // BROKEN BY SWITCH TO REACT-REDUX
+  store = mockStore(initialState)
   const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  ReactDOM.render(<Provider store={store}><MemoryRouter><App /></MemoryRouter></Provider>, div);
 });
 
 /**it('renders youtube field', () => {
@@ -30,10 +37,8 @@ it('renders without crashing', () => {
 describe ('FormLink', () =>{
   
   it ('should take some text and be clickable and show it elsewhere in the page', () => {
-    // BROKEN BY SWITCH TO REACT-REDUX
-    // CORRESPONDING CODE ALSO COMMENTED OUT
-    // THIS TEST NOT ACTUALLY RELATED TO HIGH LEVEL FEATURE
-    const wrapper = enzyme.mount(<App />);
+    store = mockStore(initialState)
+    const wrapper = enzyme.mount(<Provider store={store}><MemoryRouter><App /></MemoryRouter></Provider>);
     const yt_link = wrapper.find('#yt_link')
     expect(yt_link).toHaveLength(1);
     
@@ -45,6 +50,6 @@ describe ('FormLink', () =>{
     const display = wrapper.find("div#youtube_display").first();
     // console.log(wrapper.debug());
     
-    expect(display.text()).toEqual('http://youtu.be/B8NOJCdq1f0');
+    expect(display.text()).toEqual('You have submitted http://youtu.be/B8NOJCdq1f0');
   })
 });

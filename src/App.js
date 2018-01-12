@@ -10,7 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { display: "", youtube_link: ""};
+    this.state = { display: "nothing yet", youtube_link: ""};
   }
   
   click(e) { 
@@ -51,10 +51,10 @@ class App extends Component {
         Click to see the <Link to='/videos' id='videos_page_link'>Deserving Cause Videos</Link>
 
         
-        { /* <div id="youtube_display">
-              {  this.state.display  }
-             </div>
-        <p>links: { this.props.links}</p> */ }
+        <div id="youtube_display">
+             You have submitted {  this.state.display  }
+        </div>
+        { /* <p>links: { this.props.links}</p> */ }
       </div>
     );
   }
