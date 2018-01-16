@@ -1,9 +1,8 @@
-export const ADD_LINK = "add_link";
+import { ADD_LINK } from "./actonTypes";
 
-export function addLink(value) {
-  console.log('addLink: ' + value);
+export const addLink = (value = "") => {
   return {
     type: ADD_LINK,
     payload: value
   }
-}
+};
