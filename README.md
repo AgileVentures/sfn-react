@@ -1,3 +1,15 @@
+Sing For Needs
+==============
+
+Sing For Needs is a non-profit set up to allow content creators to link their creations to deserving causes
+
+![](https://dl.dropbox.com/s/wtdrdt4ied7zfy5/Screenshot%202018-08-22%2015.38.11.png?dl=0)
+
+
+
+Tests
+-----
+
 To run unit tests use:
 
 ```
