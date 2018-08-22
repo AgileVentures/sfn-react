@@ -40,9 +40,6 @@ To run unit tests use:
 yarn test
 ```
 
-TODO: the above is supposed to only run the unit tests, but currently runs all  
-NOTE: have commented out unit tests at the moment since they are broken for redux
-
 To run acceptance tests first start the test server:
 
 ```
