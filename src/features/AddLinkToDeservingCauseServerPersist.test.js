@@ -19,7 +19,7 @@ describe('When visiting the homepage', () => {
      .type("#yt_link", "http://real.yt.link")
      .click("input[name = 'Submit']")
      .wait(1000)
-     .goto(url+'videos')
+     .goto(url+'videos') // maybe this will no longer be an effective hard refresh if we use BrowserHistory
      .evaluate(() =>
         document.body.textContent
      )     
