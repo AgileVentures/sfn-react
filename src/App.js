@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { addLink } from "./actions"
-import logo from './logo.svg';
+import logo from './sing.png';
 import './App.css';
 
 import { Link } from 'react-router-dom'
